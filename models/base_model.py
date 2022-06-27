@@ -8,7 +8,8 @@ import models
 
 
 class BaseModel:
-    """ Base class"""
+    """ Base class
+    """
 
     def __init__(self):
         """__init__ - initalizes the base class
@@ -23,16 +24,19 @@ class BaseModel:
         self.updated_at = datetime.now()
 
     def __str__(self):
-        """Str representation of classs"""
+        """Str representation of classs
+        """
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
-        """ Updates the public instance attribute wit the current daytime"""
+        """ Updates the public instance attribute wit the current daytime
+        """
         self.updated_at = datetime.now()
         return self.updated_at
 
     def to_dict(self):
-        """Returns a dictionary containing all keys/values of dict"""
+        """Returns a dictionary containing all keys/values of dict
+        """
         my_dict = self.__dict__
         my_dict["__class__"] = self.__class__.__name__
         my_dict["created_at"] = my_dict["created_at"].isoformat()
