@@ -13,6 +13,7 @@ HBNB is a web application clone of AirBnB composed by:
 ![HBNB Structure](https://github.com/Arenc10/holbertonschool-AirBnB_clone/blob/main/hbnb_structure.png)
 
 ### Authors
+
 - [Arenc Palluqi](https://github.com/Arenc10)
 - [Endrit Novaku](https://github.com/endritNovaku)
 - [Kristjan Seraj](https://github.com/KristiSeraj)
