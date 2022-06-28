@@ -5,7 +5,6 @@ Defines a base model
 from datetime import datetime
 import uuid
 import models
-from models.engine.file_storage import storage
 
 
 class BaseModel:
@@ -33,7 +32,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            models.storage.new()
+            models.storage.new(self)
 
     def __str__(self):
         """Str representation of classs
@@ -45,7 +44,6 @@ class BaseModel:
         """
         self.updated_at = datetime.now()
         models.storage.save()
-        return self.updated_at
 
     def to_dict(self):
         """Returns a dictionary containing all keys/values of dict

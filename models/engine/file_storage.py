@@ -1,6 +1,16 @@
 #!/usr/bin/python3
 """FileStorage class created
 """
+import json
+import os
+from datetime import datetime
+from models.amenity import Amenity
+from models.city import City
+from models.review import Review
+from models.place import Place
+from models.user import User
+from models.state import State
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -17,7 +27,7 @@ class FileStorage:
     def new(self, obj):
         """Method that sets in __objects the obj with key
         """
-        FileStorage.__objects[type(obj.__name__) + "." + obj.id] = obj
+        FileStorage.__objects[type(obj).__name__ + "." + obj.id] = obj
 
     def save(self):
         """Serializes __objects to the JSON file
@@ -38,4 +48,3 @@ class FileStorage:
                     self.__objects[key] = value
         except Exception:
             pass
-            
