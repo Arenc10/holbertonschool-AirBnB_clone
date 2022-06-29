@@ -15,7 +15,7 @@ from models import storage
 class HBNBCommand(cmd.Cmd):
     """Class for the interpreter
     """
-    prompt = '(hbnb)'
+    prompt = '(hbnb) '
     cmd_classes = {
             "BaseModel": BaseModel,
             "City": City,
@@ -25,8 +25,15 @@ class HBNBCommand(cmd.Cmd):
             "Amenity": Amenity,
             "Place": Place
             }
+
     def do_quit(self, arg):
         'Quit command to exit the program'
+
+        return True
+
+    def do_EOF(self, arg):
+        'Quit command to exit the program'
+
         return True
 
 
