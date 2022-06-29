@@ -55,10 +55,17 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, args):
         arr = args.split()
-        if arr[0] not in HBNBCommand.cmd_classes:
+        if len(arr) == 0:
+            print("** class name missing **")
+        elif arr[0] not in HBNBCommand.cmd_classes:
             print("** class doesn't exist **")
-        show_obj = HBNBCommand.cmd_classes[arr[0]]()
-        print(show_obj)
+        elif len(arr) < 2:
+            print("** instance id missing **")
+        elif HBNBCommand.cmd_classes[arr[0]] != arr[1]:
+            print("** no instance found **")
+        else:
+            show_obj = HBNBCommand.cmd_classes[arr[0]]()
+            print(show_obj)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
