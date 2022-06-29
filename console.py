@@ -27,12 +27,16 @@ class HBNBCommand(cmd.Cmd):
             }
 
     def do_quit(self, arg):
-        'Quit command to exit the program'
+        """Quit command to exit the program
+
+        """
 
         return True
 
     def do_EOF(self, arg):
-        'Quit command to exit the program'
+        """Quit command to exit the program
+
+        """
 
         return True
 
@@ -40,7 +44,7 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, args):
-        """create instance of BaseModel
+        """Create instance of BaseModel
 
         """
         if args is None or args == "":
@@ -54,6 +58,9 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_show(self, args):
+        """Shows a string representation of an instance based on class name
+
+        """
         arr = args.split()
         if len(arr) == 0:
             print("** class name missing **")
@@ -61,11 +68,12 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(arr) < 2:
             print("** instance id missing **")
-        elif HBNBCommand.cmd_classes[arr[0]].id != arr[1]:
+        elif HBNBCommand.cmd_classes[arr[0]]().id != arr[1]:
             print("** no instance found **")
         else:
             show_obj = HBNBCommand.cmd_classes[arr[0]]()
             print(show_obj)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
