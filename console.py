@@ -16,7 +16,15 @@ class HBNBCommand(cmd.Cmd):
     """Class for the interpreter
     """
     cmd_prompt = '(hbnb)'
-    cmd_classes = {}
+    cmd_classes = {
+            "BaseModel": BaseModel,
+            "City": City,
+            "State": State,
+            "User": User,
+            "Review": Review,
+            "Amenity": Amenity,
+            "Place": Place
+            }
 
 
 if __name__ == '__main__':
