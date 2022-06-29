@@ -39,5 +39,26 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         pass
 
+    def do_create(self, args):
+        """create instance of BaseModel
+
+        """
+        if args is None or args == "":
+            print("** class name missing **")
+        elif args not in HBNBCommand.cmd_classes:
+            print("** class doesn't exist **")
+        else:
+            new_object = HBNBCommand.cmd_classes[args]()
+            new_object.save()
+            print(new_object.id)
+            storage.save()
+
+    def do_show(self, args):
+        arr = args.split()
+        if arr[0] not in HBNBCommand.cmd_classes:
+            print("** class doesn't exist **")
+        show_obj = HBNBCommand.cmd_classes[arr[0]]()
+        print(show_obj)
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
