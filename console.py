@@ -69,10 +69,25 @@ class HBNBCommand(cmd.Cmd):
         elif len(arr) < 2:
             print("** instance id missing **")
         elif HBNBCommand.cmd_classes[arr[0]]().id != arr[1]:
-            print("** no instance found **")
+            print(HBNBCommand.cmd_classes[arr[0]]().id)
         else:
             show_obj = HBNBCommand.cmd_classes[arr[0]]()
             print(show_obj)
+
+    def do_destroy(self, args):
+        arr = args.split()
+        if len(arr) == 0:
+            print("** class name missing **")
+        elif arr[0] not in HBNBCommand.cmd_classes:
+            print("** class doesn't exist **")
+        elif len(arr) < 2:
+            print("** instance id missing **")
+        elif HBNBCommand.cmd_classes[arr[0]]().id != arr[1]:
+            print("** no instance found **")
+        else:
+            dest_obj = HBNBCommand.cmd_classes[arr[0]]()
+            del dest_obj
+
 
 
 if __name__ == '__main__':
