@@ -61,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(arr) < 2:
             print("** instance id missing **")
-        elif HBNBCommand.cmd_classes[arr[0]] != arr[1]:
+        elif HBNBCommand.cmd_classes[arr[0]].id != arr[1]:
             print("** no instance found **")
         else:
             show_obj = HBNBCommand.cmd_classes[arr[0]]()
