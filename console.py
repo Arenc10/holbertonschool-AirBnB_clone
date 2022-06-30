@@ -100,17 +100,18 @@ class HBNBCommand(cmd.Cmd):
         """Prints all string representation of all instances
 
         """
-        if args == "":
-            print(storage.all())
-        if args not in HBNBCommand.cmd_classes and len(args) > 0:
-            print("** class doesen't exist **")
+        all_objects = storage.all()
+
+        if len(args) == 0:
+            object_list = [str(value) for value in all_objects.values()]
+        elif args in HBNBCommand.cmd_classes:
+            object_list = [str(value) for key, value in all_objects.items()
+                           if args in key]
         else:
-            temp_list = []
-            temp_obj = storage.all()
-            temp_list.append(str(temp_obj))
-            print(temp_list)
+            print("** class doesn't exit **")
+            return False
 
-
+        print(object_list)
 
 
 if __name__ == '__main__':
