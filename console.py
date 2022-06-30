@@ -96,6 +96,22 @@ class HBNBCommand(cmd.Cmd):
                 del temp_obj[temp_key]
                 storage.save()
 
+    def do_all(self, args):
+        """Prints all string representation of all instances
+
+        """
+        if args == "":
+            print(storage.all())
+        if args not in HBNBCommand.cmd_classes and len(args) > 0:
+            print("** class doesen't exist **")
+        else:
+            temp_list = []
+            temp_obj = storage.all()
+            temp_list.append(str(temp_obj))
+            print(temp_list)
+
+
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
