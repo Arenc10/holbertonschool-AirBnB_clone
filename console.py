@@ -108,7 +108,7 @@ class HBNBCommand(cmd.Cmd):
             object_list = [str(value) for key, value in all_objects.items()
                            if args in key]
         else:
-            print("** class doesn't exit **")
+            print("** class doesn't exist **")
             return False
 
         print(object_list)
