@@ -40,5 +40,7 @@ class TestReview_instantiation(unittest.TestCase):
     def test_user_id(self):
         self.assertEqual(str, type(Review().user_id))
 
+
+
 if __name__ == "__main__":
     unittest.main()
