@@ -123,7 +123,7 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         elif len(tokens) < 3:
             print("** attribute name missing **")
-        elif len(tokens)  < 4:
+        elif len(tokens) < 4:
             print("** value missing **")
         else:
             temp_key = tokens[0] + "." + tokens[1]
@@ -133,6 +133,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 setattr(temp_obj[temp_key], tokens[2], tokens[3])
                 storage.save()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
