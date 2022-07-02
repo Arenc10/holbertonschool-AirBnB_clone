@@ -86,7 +86,15 @@ class TestFileStorage_methods(unittest.TestCase):
         self.assertIn(new_amenity, models.storage.all().values())
         self.assertIn("Review." + new_review.id, models.storage.all().keys())
         self.assertIn(new_review, models.storage.all().values())
-    
+
+    def test_new_arg(self):
+        with self.assertRaises(TypeError):
+            models.storage.new(User(), 1)
+
+    def test_new_none(self):
+        with self.assertRaises(AttributeError):
+            models.storage.new(None)
+
     def test_save(self):
         new_base_model = BaseModel()
         new_user = User()
@@ -115,6 +123,10 @@ class TestFileStorage_methods(unittest.TestCase):
             self.assertIn("Amenity." + new_amenity.id, txt_save)
             self.assertIn("Review." + new_review.id, txt_save)
 
+    def test_save_none(self):
+        with self.assertRaises(TypeError):
+            models.storage.save(None)
+
     def test_reload(self):
         new_base_model = BaseModel()
         new_user = User()
@@ -141,6 +153,10 @@ class TestFileStorage_methods(unittest.TestCase):
         self.assertIn("City." + new_city.id, new_objs)
         self.assertIn("Amenity." + new_amenity.id, new_objs)
         self.assertIn("Review." + new_review.id, new_objs)
+
+    def test_reload_none(self):
+        with self.assertRaises(TypeError):
+            models.storage.reload(None)
 
 
 if __name__ == "__main__":
