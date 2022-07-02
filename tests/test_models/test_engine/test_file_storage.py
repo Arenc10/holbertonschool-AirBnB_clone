@@ -80,6 +80,67 @@ class TestFileStorage_methods(unittest.TestCase):
         self.assertIn(new_state, models.storage.all().values())
         self.assertIn("Place." + new_place.id, models.storage.all().keys())
         self.assertIn(new_place, models.storage.all().values())
+        self.assertIn("City." + new_city.id, models.storage.all().keys())
+        self.assertIn(new_city, models.storage.all().values())
+        self.assertIn("Amenity." + new_amenity.id, models.storage.all().keys())
+        self.assertIn(new_amenity, models.storage.all().values())
+        self.assertIn("Review." + new_review.id, models.storage.all().keys())
+        self.assertIn(new_review, models.storage.all().values())
+    
+    def test_save(self):
+        new_base_model = BaseModel()
+        new_user = User()
+        new_state = State()
+        new_place = Place()
+        new_review = Review()
+        new_amenity = Amenity()
+        new_city = City()
+
+        models.storage.new(new_base_model)
+        models.storage.new(new_user)
+        models.storage.new(new_state)
+        models.storage.new(new_place)
+        models.storage.new(new_city)
+        models.storage.new(new_amenity)
+        models.storage.new(new_review)
+        models.storage.save()
+        txt_save = ""
+        with open("file.json", "r") as f:
+            txt_save = f.read()
+            self.assertIn("BaseModel." + new_base_model.id, txt_save)
+            self.assertIn("User." + new_user.id, txt_save)
+            self.assertIn("State." + new_state.id, txt_save)
+            self.assertIn("Place." + new_place.id, txt_save)
+            self.assertIn("City." + new_city.id, txt_save)
+            self.assertIn("Amenity." + new_amenity.id, txt_save)
+            self.assertIn("Review." + new_review.id, txt_save)
+
+    def test_reload(self):
+        new_base_model = BaseModel()
+        new_user = User()
+        new_state = State()
+        new_place = Place()
+        new_review = Review()
+        new_amenity = Amenity()
+        new_city = City()
+
+        models.storage.new(new_base_model)
+        models.storage.new(new_user)
+        models.storage.new(new_state)
+        models.storage.new(new_place)
+        models.storage.new(new_city)
+        models.storage.new(new_amenity)
+        models.storage.new(new_review)
+        models.storage.save()
+        models.storage.reload()
+        new_objs = FileStorage._FileStorage__objects
+        self.assertIn("BaseModel." + new_base_model.id, new_objs)
+        self.assertIn("User." + new_user.id, new_objs)
+        self.assertIn("State." + new_state.id, new_objs)
+        self.assertIn("Place." + new_place.id, new_objs)
+        self.assertIn("City." + new_city.id, new_objs)
+        self.assertIn("Amenity." + new_amenity.id, new_objs)
+        self.assertIn("Review." + new_review.id, new_objs)
 
 
 if __name__ == "__main__":
