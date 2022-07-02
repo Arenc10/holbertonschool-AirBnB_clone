@@ -12,6 +12,37 @@ HBNB is a web application clone of AirBnB composed by:
 
 ![HBNB Structure](https://github.com/Arenc10/holbertonschool-AirBnB_clone/blob/main/hbnb_structure.png)
 
+### The console
+
+- creates data model
+- manages (create, update, destroy, etc) objects via a cmd
+- stores and persists objects to a file (JSON file)
+
+```
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit  update  create  show  all
+
+(hbnb) 
+(hbnb) quit
+$
+```
+
+**Example of commands**
+```
+$ ./console.py
+(hbnb) create BaseModel
+49faff9a-6318-451f-87b6-910505c55907
+(hbnb) help create
+Create instance of a class
+
+(hbnb) quit
+$
+```
+
 ### Authors
 
 - [Arenc Palluqi](https://github.com/Arenc10)
