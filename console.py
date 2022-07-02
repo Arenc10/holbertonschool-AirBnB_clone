@@ -44,7 +44,7 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, args):
-        """Create instance of BaseModel
+        """Create instance of a class
 
         """
         if args is None or args == "":
