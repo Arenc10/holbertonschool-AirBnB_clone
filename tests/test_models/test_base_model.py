@@ -104,7 +104,7 @@ class TestBaseModel(unittest.TestCase):
     def test_one_save(self):
         base = BaseModel()
         sleep(0.05)
-        first_updated_at = bm.updated_at
+        first_updated_at = base.updated_at
         base.save()
         self.assertLess(first_updated_at, base.updated_at)
 
@@ -122,7 +122,7 @@ class TestBaseModel(unittest.TestCase):
     def test_save_with_arg(self):
         base = BaseModel()
         with self.assertRaises(TypeError):
-            bm.save(None)
+            base.save(None)
 
     def test_save_updates_file(self):
         base = BaseModel()
