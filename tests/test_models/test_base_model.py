@@ -10,6 +10,7 @@ import cmd
 from models import storage
 import os
 
+
 class TestBaseModel(unittest.TestCase):
     """Unit test for BaseModel"""
 
@@ -130,6 +131,7 @@ class TestBaseModel(unittest.TestCase):
         bmid = "BaseModel." + base.id
         with open("file.json", "r") as f:
             self.assertIn(bmid, f.read())
+
 
 if __name__ == "__main__":
     unittest.main()

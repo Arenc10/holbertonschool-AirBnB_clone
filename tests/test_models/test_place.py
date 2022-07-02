@@ -10,6 +10,7 @@ from datetime import datetime
 from time import sleep
 from models.place import Place
 
+
 class TestPlace_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the Place class."""
 
@@ -57,6 +58,7 @@ class TestPlace_instantiation(unittest.TestCase):
 
     def test_amenity_ids(self):
         self.assertEqual(list, type(Place().amenity_ids))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -20,7 +20,7 @@ class TestStateModel(unittest.TestCase):
 
     def test_updated_at(self):
         self.assertEqual(datetime, type(State().updated_at))
-    
+
     def test_name(self):
         new_state = State()
         self.assertEqual(str, type(State().name))
@@ -31,6 +31,7 @@ class TestStateModel(unittest.TestCase):
         new_state1 = State()
         new_state2 = State()
         self.assertNotEqual(new_state1.id, new_state2.id)
+
 
 class TestStateModel_to_dict(unittest.TestCase):
     """Unittest for testing to_dict method of the State class"""
@@ -60,7 +61,7 @@ class TestStateModel_to_dict(unittest.TestCase):
     def test_contrast_dict(self):
         new_state = State()
         self.assertNotEqual(new_state.to_dict(), new_state.__dict__)
- 
+
 
 if __name__ == "__main__":
     unittest.main()

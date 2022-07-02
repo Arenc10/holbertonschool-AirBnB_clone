@@ -20,13 +20,13 @@ class TestUserModel(unittest.TestCase):
 
     def test_updated_at(self):
         self.assertEqual(datetime, type(User().updated_at))
-    
+
     def test_email(self):
         self.assertEqual(str, type(User().email))
-    
+
     def test_password(self):
         self.assertEqual(str, type(User().password))
-    
+
     def test_first_name(self):
         self.assertEqual(str, type(User().first_name))
 
@@ -37,7 +37,8 @@ class TestUserModel(unittest.TestCase):
         new_user1 = User()
         new_user2 = User()
         self.assertNotEqual(new_user1.id, new_user2.id)
-    
+
+
 class TestUserModel_to_dict(unittest.TestCase):
     """Unittest for testing to_dict method of the User class"""
 
@@ -66,7 +67,7 @@ class TestUserModel_to_dict(unittest.TestCase):
     def test_contrast_dict(self):
         new_user = User()
         self.assertNotEqual(new_user.to_dict(), new_user.__dict__)
-    
+
 
 if __name__ == "__main__":
     unittest.main()
