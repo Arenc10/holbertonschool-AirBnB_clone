@@ -32,7 +32,17 @@ class HBNBCommand(cmd.Cmd):
             arr = args.split(".")
             s = arr[1] + " " + arr[0]
             s1 = s.replace("(", "").replace(")", "")
-            self.onecmd(s1)
+            arr1 = s1.split(" ")
+            if arr1[0] == "count":
+                count = 0
+                all_objects = storage.all()
+                for key in all_objects:
+                    tokens = key.split(".")
+                    if arr1[1] == tokens[0]:
+                        count = count + 1
+                print(count)
+            else:
+                self.onecmd(s1)
         elif re.search(r'^\w+\.{1,1}\w+\({1,1}[a-zA-Z0-9-]+\)$', args):
             s = args.replace("(", ".").replace(")", "")
             s1 = s.split(".")
