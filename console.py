@@ -10,6 +10,7 @@ from models.amenity import Amenity
 from models.place import Place
 import cmd
 from models import storage
+import re
 
 
 class HBNBCommand(cmd.Cmd):
@@ -25,6 +26,36 @@ class HBNBCommand(cmd.Cmd):
             "Amenity": Amenity,
             "Place": Place
             }
+
+    def default(self, args):
+        if re.search(r'^\w+\.{1,1}\w+\({1,1}\)$', args):
+            arr = args.split(".")
+            s = arr[1] + " " + arr[0]
+            s1 = s.replace("(", "").replace(")", "")
+            self.onecmd(s1)
+        elif re.search(r'^\w+\.{1,1}\w+\({1,1}[a-zA-Z0-9-]+\)$', args):
+            s = args.replace("(", ".").replace(")", "")
+            s1 = s.split(".")
+            s2 = s1[1] + " " + s1[0] + " " + s1[2]
+            self.onecmd(s2)
+        elif re.search((r'^\w+\.{1,1}\w+'
+                        r'\({1,1}[a-zA-Z0-9-_]+'
+                        r',{1,1}\s?[a-zA-Z0-9-_]+\)$'), args):
+            s = args.replace("(", ".").replace(")", "")\
+                .replace(",", ".").replace(" ", "")
+            s1 = s.split(".")
+            s2 = s1[1] + " " + s1[0] + " " + s1[2] + " " + s1[3]
+            self.onecmd(s2)
+        elif re.search((r'^\w+\.{1,1}\w+\({1,1}'
+                        r'[a-zA-Z0-9-_]+,{1,1}\s?[a-zA-Z0-9-_]+'
+                        r',{1,1}\s?[a-zA-Z0-9-_]+\)$'), args):
+            s = args.replace("(", ".").replace(")", "")\
+                .replace(",", ".").replace(" ", "")
+            s1 = s.split(".")
+            s2 = s1[1] + " " + s1[0] + " " + s1[2] + " " + s1[3] + " " + s1[4]
+            self.onecmd(s2)
+
+        return False
 
     def do_quit(self, arg):
         """Quit command to exit the program
