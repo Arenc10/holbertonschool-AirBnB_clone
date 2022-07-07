@@ -6,5 +6,5 @@ header{
 	width: 100%;
 	color: white;
 	border-bottom: 1px solid #CCCCCC;
-	background: 20px url("../images/logo.png");
+	background: 20px url("../images/logo.png") no-repeat;
 }
