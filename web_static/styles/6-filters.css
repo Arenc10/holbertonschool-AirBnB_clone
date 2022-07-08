@@ -22,6 +22,14 @@
 	background-color: #FAFAFA;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
+	margin-top:18px;
+}
+.popover li{
+	list-style: none;
+
+}
+.popover h2{
+	margin: 20px 0 0 0;
 }
 .locations:hover .popover{
 	display: block;
