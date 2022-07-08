@@ -37,6 +37,13 @@
 .popover h2{
 	margin: 20px 0 0 0;
 }
+.amenities ul.popover{
+	padding-top:25px;
+	padding-bottom:25px;
+}
+.locations ul.popover{
+	padding-bottom:20px;
+}
 .locations:hover .popover{
 	display: block;
 }
