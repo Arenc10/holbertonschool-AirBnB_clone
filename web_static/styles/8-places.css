@@ -49,14 +49,23 @@ article h2{
 .max_guest{
 	width: 100px;
 	background: url(../images/icon_group.png) 20px center no-repeat;
+	display: flex;
+	align-items: end;
+	justify-content: center;
 }
 .number_rooms{
         width: 100px;
 	background: url(../images/icon_bed.png) 20px center no-repeat;
+	display: flex;
+	align-items: end;
+	justify-content: center;
 }
 .number_bathrooms{
         width: 100px;
 	background: url(../images/icon_bath.png) 20px center no-repeat;
+	display:flex;
+	align-items: end;
+	justify-content: center;
 }
 .user{
 	text-align: left;
